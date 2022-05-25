@@ -25,7 +25,7 @@ Before using it, it is important to adapt some parameters to our LINAC:
 - Exporting folder path. (to obtain a 3D representation of the situation)
 
 
-Machine Test to determinate distance tolerance (recommended 20 mm if spacing is equal to 10 mm):
+Machine Test to determinate distance tolerance (recommended 25 mm if spacing is equal to 10 mm):
 - Step 1. Put the couch in a reasonable treatment position
 - Step 2. For the following couch angles (15,20,25,30,45), rotate de gantry until it collides with the couch.
 	  Note this critical gantry angles.
