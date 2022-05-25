@@ -1,6 +1,6 @@
-# Script-for-detect-collision-in-external-radiotherapy-planning
+// Script-for-detect-collision-in-external-radiotherapy-planning
 
-The script has been adapted in order to be a boolean function:
+// This script has been adapted in order to be a boolean function:
 
     bool CheckCollision(ref PlanSetup planSetup)
     {
@@ -57,7 +57,7 @@ The script has been adapted in order to be a boolean function:
     }
 
 
-Three extra functions are needed:
+// Three extra functions are needed:
 
     public bool Collision(MeshGeometry3D mesh, List<Point3D> points, Vector3D iso, int reductionFactor = 1, double extension = 0, double tolerance = 25)
     {
