@@ -1,0 +1,34 @@
+Last modification: 25/05/2022
+Authors: Iñigo González Lizarraga, Alejandro Barranco López, Sheila Calvo Carrillo, Mónica Hernández Hernández
+All of them work together in Hospital Clínico Lozano Blesa de Zaragoza, Spain.
+
+_________________________________________________________________________________________________________________________________________________________________________________
+
+SCRIPT FOR COLLISION DETECTION IN EXTERNAL RADIOTHERAPY PLANNING
+
+
+This script detects collisions between the gantry of a LINAC and the couch or the patient during the planning phase.
+The software is implemented in C# programming language, being able to work with Eclipse TPS, from Varian Medical Systems.
+
+
+The script must be executed in the planning phase. It reads the RT.Structures and the loaded RT.Plan from the TPS.
+It creates as surface the countour of the collimator path for each beam on the plan. Then it checks the distance between all 
+collimator path points and the couch and patient surfaces. If whatever of this calculated distances is lower than a defined tolerance,
+the script shows a warning window and a 3D representation of the geometry.
+
+
+
+Before using it, it is important to adapt some parameters to our LINAC:
+- Radius of collimator
+- Clearence (distance from isocenter to collimator surface)
+- Distance tolerance (we can estimate it by doing a machine test)
+- Exporting folder path. (to obtain a 3D representation of the situation)
+
+
+Machine Test to determinate distance tolerance (recommended 20 mm if spacing is equal to 10 mm):
+- Step 1. Put the couch in a reasonable treatment position
+- Step 2. For the following couch angles (15,20,25,30,45), rotate de gantry until it collides with the couch.
+	  Note this critical gantry angles.
+- Step 3. In Eclipse, for the same couch angles, execute the script at different gantry angles and find this critical gantry angle.
+	  Repeat this for different distance tolerances.
+- Step 4. Determinate which distance tolerance matches better the reference results from the second step.
