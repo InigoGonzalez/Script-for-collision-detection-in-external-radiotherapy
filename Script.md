@@ -47,10 +47,10 @@ The script has been adapted in order to be a boolean function:
         if (couchCollision || patientCollision)
         {
           collisionExists = true;
-          Export(@"\\10.35.209.1\Varios\Scripts\ESAPI\colimador.txt", points);
-          Export(@"\\10.35.209.1\Varios\Scripts\ESAPI\mesa.txt", meshCouch, iso, 15, extension);
+          Export(@"\\10.35.209.1\Varios\Scripts\ESAPI\collimator.txt", points);
+          Export(@"\\10.35.209.1\Varios\Scripts\ESAPI\couch.txt", meshCouch, iso, 15, extension);
           Export(@"\\10.35.209.1\Varios\Scripts\ESAPI\body.txt", meshBody, iso, 15, extension);
-          System.Diagnostics.Process.Start("cmd.exe", "/C \\\\10.35.209.1\\Varios\\Scripts\\PythonPortable\\App\\python.exe \\\\10.35.209.1\\Varios\\Scripts\\ESAPI\\dibujaColision.py");
+          System.Diagnostics.Process.Start("cmd.exe", "/C \\\\10.35.209.1\\Varios\\Scripts\\PythonPortable\\App\\python.exe \\\\10.35.209.1\\Varios\\Scripts\\ESAPI\\PrintFile.py");
         }		
       }
       return collisionExists;
@@ -116,6 +116,7 @@ Three extra functions are needed:
       outputFile.Close();
       return;
     }
+    
     
     // angles in degrees, distances in mm
     public List<Point3D> CreateCollimator(double startAngle, double finishAngle, double couchAngle, double clearance, double radius, double spacing = 10)
