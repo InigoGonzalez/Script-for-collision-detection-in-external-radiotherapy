@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
-collimatorFile = open("//10.35.209.1/Varios/Scripts/ESAPI/colimador.txt","r")
+collimatorFile = open("//10.35.209.1/Varios/Scripts/ESAPI/collimator.txt","r")
 collimatorLines = collimatorFile.readlines()
 collimatorX = []
 collimatorY = []
@@ -14,7 +14,7 @@ for line in collimatorLines:
     collimatorY.append(float(line.split(' ')[2]))
     collimatorZ.append(-float(line.split(' ')[1]))
 
-couchFile = open("//10.35.209.1/Varios/Scripts/ESAPI/mesa.txt","r")
+couchFile = open("//10.35.209.1/Varios/Scripts/ESAPI/couch.txt","r")
 couchLines = couchFile.readlines()
 couchX = []
 couchY = []
