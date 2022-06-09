@@ -62,6 +62,7 @@
     public bool Collision(MeshGeometry3D mesh, List<Point3D> points, Vector3D iso, int reductionFactor = 1, double extension = 0, double tolerance = 25)
     {
       double minZ = mesh.Positions.Min(position => position.Z);
+      double tolsquare = tolerance * tolerance;
       for(int i = 0; i < mesh.Positions.Count; i += reductionFactor )
       {
         Point3D p1 = mesh.Positions[i];
@@ -71,7 +72,7 @@
           {
             foreach(Point3D p2 in points) 
             {	
-              if ( Math.Sqrt((p2.X - (p1.X - iso.X)) * (p2.X - (p1.X - iso.X)) + (p2.Y - (p1.Y - iso.Y)) * (p2.Y - (p1.Y - iso.Y)) + (p2.Z - (p1.Z - e - iso.Z)) * (p2.Z - (p1.Z - e - iso.Z))) < tolerance)
+              if ( (p2.X - (p1.X - iso.X)) * (p2.X - (p1.X - iso.X)) + (p2.Y - (p1.Y - iso.Y)) * (p2.Y - (p1.Y - iso.Y)) + (p2.Z - (p1.Z - e - iso.Z)) * (p2.Z - (p1.Z - e - iso.Z)) < tolsquare)
                 return true;
             }
           }
@@ -79,7 +80,7 @@
 
         foreach(Point3D p2 in points) 
         {	
-          if ( Math.Sqrt((p2.X - (p1.X - iso.X)) * (p2.X - (p1.X - iso.X)) + (p2.Y - (p1.Y - iso.Y)) * (p2.Y - (p1.Y - iso.Y)) + (p2.Z - (p1.Z - iso.Z)) * (p2.Z - (p1.Z - iso.Z))) < tolerance)
+          if ( (p2.X - (p1.X - iso.X)) * (p2.X - (p1.X - iso.X)) + (p2.Y - (p1.Y - iso.Y)) * (p2.Y - (p1.Y - iso.Y)) + (p2.Z - (p1.Z - iso.Z)) * (p2.Z - (p1.Z - iso.Z)) < tolsquare)
             return true;
         }				
       }
